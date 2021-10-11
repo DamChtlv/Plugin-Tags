@@ -1,0 +1,38 @@
+:root {
+    --plugin-tag-color: #fff;
+    --plugin-tag-bg: #bbb;
+}
+
+.plugin-tags {
+    display: inline-flex;
+    color: var(--plugin-tag-color, #fff);
+    padding: 0px 10px;
+    border-radius: .75rem;
+    font-size: .75rem;
+    background: var(--plugin-tag-bg, #bbb);
+    transition: background-color 0.15s ease 0s;
+}
+
+.plugin-tag {
+    display: inline-block;
+}
+
+.plugin-tags button {
+    display: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0px;
+    background: transparent;
+    font-size: inherit;
+    color: inherit;
+    padding: 0;
+    margin: auto auto auto .33em;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+
+.plugin-tags:hover button {
+    display: inline-block;
+}
