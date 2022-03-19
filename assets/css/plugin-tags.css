@@ -1,14 +1,9 @@
-:root {
-    --plugin-tag-color: #fff;
-    --plugin-tag-bg: #bbb;
-}
-
 .plugin-tags {
     display: inline-flex;
     color: var(--plugin-tag-color, #fff);
-    padding: 0px 10px;
-    border-radius: .75rem;
-    font-size: .75rem;
+    padding: var(--plugin-tag-pad, 0 7px);
+    border-radius: var(--plugin-tag-rad, 3px);
+    font-size: var(--plugin-tag-fs, .75rem);
     background: var(--plugin-tag-bg, #bbb);
     transition: background-color 0.15s ease 0s;
 }

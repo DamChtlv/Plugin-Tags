@@ -2,7 +2,7 @@
 /**
  * Plugin Name:         Plugin Tags
  * Description:         Add tags to the plugins list view to quickly note which does what.
- * Version:             1.0
+ * Version:             1.2.3
  * Tags:                plugin tags, plugin notes, plugin keywords, plugin management
  * Author:              DamChtlv
  * Author URI:          https://dam.cht.lv
@@ -28,7 +28,7 @@ if ( !class_exists( 'Plugin_Tags' ) ) {
          *
          * @var string
          */
-        public $version = '1.0';
+        public $version = '1.2.3';
 
         // Constructor
         public function __construct() {
@@ -300,7 +300,7 @@ if ( !class_exists( 'Plugin_Tags' ) ) {
 
             // Default displayed values
             $tag_name  = __( 'No tag', 'ptags' );
-            $tag_color = '';
+            $tag_color = $tag_color_index = '';
 
             // Check if the plugin has some "tags" set, if so, use them as default
             if ( $plugin_tags ) {
@@ -317,13 +317,13 @@ if ( !class_exists( 'Plugin_Tags' ) ) {
             if ( isset( $plugin_tags_option['plugins'][ $plugin_slug ] ) ) {
                 $plugin_tag_data = $plugin_tags_option['plugins'][ $plugin_slug ];
                 $tag_name        = ptg_maybe_get( $plugin_tag_data, 'tag', $tag_name );
-                $tag_color       = ptg_maybe_get( $plugin_tag_data, 'color' );
+                $tag_color_index = ptg_maybe_get( $plugin_tag_data, 'color' );
             }
 
             // Turn color number into hex color user scheme
-            if ( $tag_color ) {
+            if ( $tag_color_index ) {
                 $color_scheme = $this->get_color_scheme();
-                $tag_color    = ptg_maybe_get( $color_scheme, $tag_color );
+                $tag_color    = ptg_maybe_get( $color_scheme, $tag_color_index );
                 $tag_color    = "style='--plugin-tag-bg:$tag_color;'";
             }
 
@@ -333,7 +333,7 @@ if ( !class_exists( 'Plugin_Tags' ) ) {
                     "<span class='plugin-tag' contenteditable='true' title='Change tag'>" .
                         '%s' .
                     '</span> ' .
-                    "<button type='button' class='js-change-color dashicons dashicons-admin-appearance' title='Change color'></button>" .
+                    "<button type='button' class='js-change-color dashicons dashicons-admin-appearance' title='Change color' data-color='$tag_color_index'></button>" .
                     "<button type='button' class='js-toggle-tag-view dashicons dashicons-sticky' title='Toggle tag view'></button>" .
                 '</div>',
                 esc_html( $tag_name ),

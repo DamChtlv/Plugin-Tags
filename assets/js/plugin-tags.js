@@ -69,10 +69,21 @@
 
         const $button = $(event.currentTarget),
             $tag = $button.parent(),
-            random_color_index = Math.floor( Math.random() * plugin_tags.color_scheme.length ),
-            random_color = plugin_tags.color_scheme[ random_color_index ];
+            current_color_index = Number($button.attr('data-color'));
 
-        $tag[0].style.setProperty( '--plugin-tag-bg', random_color );
+        // Define new color index
+        let new_color_index = !isNaN(current_color_index) ? current_color_index + 1 : 0;
+        if (new_color_index > plugin_tags.color_scheme.length - 1) {
+            new_color_index = 0;
+        }
+
+        const color = plugin_tags.color_scheme[ new_color_index ];
+
+        // Set color index
+        $button.attr('data-color', new_color_index);
+
+        // Set color
+        $tag[0].style.setProperty( '--plugin-tag-bg', color );
 
         /** Form Data */
         const $tag_slug = $tag.parents('[data-slug]'),
@@ -86,7 +97,7 @@
             data: {
                 action: wp_ajax_action,
                 plugin_slug: plugin_slug,
-                tag_color: random_color_index,
+                tag_color: new_color_index,
             },
             dataType: 'json',
 
