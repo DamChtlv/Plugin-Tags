@@ -4,7 +4,7 @@ Tags: plugin tags, plugin notes, plugin keywords, plugin management
 Requires at least: 3.0 or higher
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 1.0
+Stable tag: 1.2.2
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
