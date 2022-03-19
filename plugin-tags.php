@@ -2,7 +2,7 @@
 /**
  * Plugin Name:         Plugin Tags
  * Description:         Add tags to the plugins list view to quickly note which does what.
- * Version:             1.0
+ * Version:             1.2.2
  * Tags:                plugin tags, plugin notes, plugin keywords, plugin management
  * Author:              DamChtlv
  * Author URI:          https://dam.cht.lv
@@ -28,7 +28,7 @@ if ( !class_exists( 'Plugin_Tags' ) ) {
          *
          * @var string
          */
-        public $version = '1.0';
+        public $version = '1.2.2';
 
         // Constructor
         public function __construct() {
