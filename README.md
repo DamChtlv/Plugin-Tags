@@ -5,3 +5,4 @@
 
 ## 💡 TODO
 - Add "**highlighted / bold**" style to active plugin filter
+- Set Git template to this repo
